@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	
+
 	"github.com/btwkevin/kit/command"
 )
 
@@ -22,7 +22,7 @@ func main() {
 	case "cat-file":
 		command.HandleCatFileCommand()
 	case "hash-object":
-		HandleHashObjectCommand()
+		command.HandleHashObjectCommand()
 	default:
 		fmt.Fprintf(os.Stderr, "Unknown command %s", cmd)
 		os.Exit(1)
@@ -41,9 +41,4 @@ func CreateGitDirectory() {
 	path = filepath.Join(dir, ".git/HEAD")
 	os.WriteFile(path, data, 0700)
 	fmt.Printf("Initialized empty Git repository in %s.git/\n", path)
-}
-
-// 9da8d6211e77c8a4dd43d929a769ded98592ec92
-func HandleHashObjectCommand (){
-	
 }
